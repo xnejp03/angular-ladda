@@ -43,6 +43,7 @@
         priority: -1,
         link: function (scope, element, attrs) {
           element.addClass('ladda-button');
+          element.append(' <span style="display:none" class="glyphicon glyphicon-ok"></span>');
           if(angular.isUndefined(element.attr('data-style'))) {
             element.attr('data-style', laddaOption.style || 'zoom-in');
           }
@@ -67,6 +68,12 @@
               // re-evaluated since the disabled attribute is removed by the 'stop' method.
               if (attrs.ngDisabled) {
                 element.attr('disabled', scope.$eval(attrs.ngDisabled));
+              }
+              if(scope.laddaShowSuccess) {
+                element.addClass('ladda-success');
+                setTimeout(function () {
+                  element.removeClass('ladda-success');
+                }, 1000);
               }
               return;
             }
