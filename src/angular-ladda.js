@@ -69,7 +69,7 @@
               if (attrs.ngDisabled) {
                 element.attr('disabled', scope.$eval(attrs.ngDisabled));
               }
-              if(scope.laddaShowSuccess) {
+              if(attrs.laddaShowSuccess === 'true') {
                 element.addClass('ladda-success');
                 setTimeout(function () {
                   element.removeClass('ladda-success');
